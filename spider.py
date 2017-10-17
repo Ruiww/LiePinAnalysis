@@ -3,6 +3,7 @@ import pymongo
 import time
 from LiePinSpider.config import hds, mongo_url, mongo_DB, mongo_table
 from pyquery import PyQuery as pq
+from multiprocessing import Pool
 
 #mongDB初始化
 client = pymongo.MongoClient(mongo_url)
@@ -72,9 +73,6 @@ def get_industry_url(index_page_html):
             print(industry_url[a.text()])
     return industry_url
 
-# sojob > div.container.sojob-search > form > div.wrap > div > div.search-conditions > dl:nth-child(1) > dd > ul > li:nth-child(1) > div
-
-
 #获取详情页
 def detail_page_html(detail_url):
     try:
@@ -87,7 +85,7 @@ def detail_page_html(detail_url):
         detail_page_html(detail_url)
 
 #解析详情页
-def parse_detail_page(detail_html):
+def parse_detail_page(industry,detail_html):
     title = detail_html('.about-position .title-info h1').text()
     company = detail_html('.about-position .title-info h3 a').text()
     salary = detail_html('.about-position .job-item .job-item-title').text().split()[0]
@@ -110,7 +108,8 @@ def parse_detail_page(detail_html):
     # 职位描述
     description = detail_html('.about-position div:nth-child(3) .content').text()
     #industry有两种格式，一种为行业，一种为领域/融资，数据清洗时注意
-    industry = detail_html('.right-blcok-post .new-compintro li:nth-child(1)').text()
+    industry = industry
+    industry_detail = detail_html('.right-blcok-post .new-compintro li:nth-child(1)').text()
     companySize = detail_html('.right-blcok-post .new-compintro li:nth-child(2)').text()[5:]
     comAddress = detail_html('.right-blcok-post .new-compintro li:nth-child(3)').text()[5:]
     #判断职位是否已结束
@@ -132,6 +131,7 @@ def parse_detail_page(detail_html):
         'tag_list':tag_list,
         'description':description,
         'industry':industry,
+        'industry_detail':industry_detail,
         'companySize':companySize,
         'comAddress':comAddress,
         'is_end':is_end
@@ -148,18 +148,21 @@ def save_to_mongo(data):
         print('Failed')
 
 #解析详情+获取下一页并解析下一页的详情直到nextpage=None
-def parse_detail_savedata_rollpage(url):
+def parse_detail_savedata_rollpage(para):
+    industry = para['industry']
+    url = para['url']
+
     html = index_page_html(url)
     #获取当前index详情页url
     detail_url_list = get_detail_url(html)
     #解析当前index每一个详情页，并保存数据
     for url in detail_url_list:
         print('解析详情页:',url)
-        #detail_html = detail_page_html(url)
-        #data = parse_detail_page(detail_html)
-        #data['url'] = url
+        detail_html = detail_page_html(url)
+        data = parse_detail_page(industry,detail_html)
+        data['url'] = url
         #存入mongoDB
-        #save_to_mongo(data)
+        save_to_mongo(data)
 
     #nextPage回调
     #出现降级搜索代码，后面的内容是不想要的，因此跳出循环，并停止获取下一页
@@ -167,15 +170,22 @@ def parse_detail_savedata_rollpage(url):
         next_page = get_next_page_url(html)
         #print(next_page)
         if next_page != None:
-            parse_detail_savedata_rollpage(next_page)
+            parse_detail_savedata_rollpage(para)
+    else:
+        print('解析完成：',industry)
 
-
+'''
 def industry_ergodic(url):
     html = index_page_html(url)
     industry_url_list = get_industry_url(html)
     for industry in industry_url_list.keys():
         print('解析行业:',industry)
         industry_url = industry_url_list[industry]
-        parse_detail_savedata_rollpage(industry_url)
+        parse_detail_savedata_rollpage(industry,industry_url)
     print('Complete！')
 
+def multi_parse(industry,url):
+    #html = index_page_html(url)
+    #industry_url_list = get_industry_url(html)
+    parse_detail_savedata_rollpage(industry,url)
+'''
