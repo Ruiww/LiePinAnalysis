@@ -4,6 +4,7 @@ import pymongo
 import pymysql
 from LiePinSpider.spider.config import database,hds,mongo_url,mongo_DB,mongo_table,host,mysqlDB,user,key
 from pyquery import PyQuery as pq
+
 #获取索引页（start_url/industry_url/next_page_url）index_url --> html
 def index_page_html(industry,cur_page,index_url):
     print('解析索引页：',industry,'curPage=',cur_page,':',index_url)
@@ -208,7 +209,7 @@ def spider(parameter):
     print(industry)
     cur_page = 1
     industry_html = index_page_html(industry,cur_page,industry_url)#获取分行业索引页，curpage=0
-
+    '''
     if database == 'mysql':
         sql = """CREATE TABLE `liepin` (
         `JobTitle` CHAR,
@@ -232,7 +233,7 @@ def spider(parameter):
         except:
             # 如果发生错误则回滚
             db.rollback()
-
+    '''
     loop_all_page(cur_page,industry,industry_html)
 
     #if database == 'mysql':

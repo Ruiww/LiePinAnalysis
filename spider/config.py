@@ -5,8 +5,8 @@ database = 'mongodb'
 
 #mysql参数
 host = 'localhost'
-user = 'root'
-key = 'awr159753bnm'
+user = 'pymsql'
+key = 'pymysql'
 mysqlDB = 'LiePinData'
 
 #mongoDB参数
