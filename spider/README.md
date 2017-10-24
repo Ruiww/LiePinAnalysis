@@ -84,10 +84,9 @@ lastInd?(no)->getNextInd(right)->getIndexPage
 * start_url : 爬虫起始网页，代码中使用筛选条件为 ‘全国 1个月内 企业职位 key=数据分析’对应页的url
 
 
+## config.py
 
-##config.py
-
-###MySQL参数
+### MySQL参数
 
 用于在python中创建MySQL连接，目前MySQL存储存在bug，尚未实现
 
@@ -98,7 +97,7 @@ key = 'pymysql'
 mysqlDB = 'LiePin'
 ```
 
-###mongoDB参数
+### mongoDB参数
 
 用于mongoDB初始化
 
@@ -156,7 +155,7 @@ time.sleep(3) #暂停3s，避免过于频繁访问，导致爬虫被禁
 * index_html:当前索引页源代码
 * industry,cur_page：当前索引页对应的行业与页码，debug时便于定位发生错误的网页
 
-###get_detail_page_url(index_html)
+### get_detail_page_url(index_html)
 
 解析索引页中包含的职位详情页url，返回索引页中所有详情页url组成的list及停止变量构成的元组
 
@@ -181,11 +180,11 @@ for item in index_html(selector).items():
             pass
 ```
 
-###get_detail_page_html(industry,cur_page,detail_page_url)
+### get_detail_page_html(industry,cur_page,detail_page_url)
 
 返回职位详情页源代码
 
-###parse_detail_page(industry,detail_html)
+### parse_detail_page(industry,detail_html)
 
 解析职位详情页，返回字典形式的职位
 
@@ -226,14 +225,14 @@ table = db[mongo_table]#数据表
 db[mongo_table].insert(data)
 ```
 
-###loop_detail_page(industry,cur_page,detail_page_url_list)
+### loop_detail_page(industry,cur_page,detail_page_url_list)
 
 遍历某一索引页下所有职位详情页，保存职位信息
 
 * industry,cur_page：哪一行业的哪一页，定位参数，debug时方便定位
 * detail_page_url_list：get_detail_page_url获得的详情页url列表
 
-###loop_all_page(cur_page,industry,index_html)
+### loop_all_page(cur_page,industry,index_html)
 
 函数内调用loop_detail_page，保存职位信息
 
@@ -249,7 +248,7 @@ db[mongo_table].insert(data)
             loop_all_page(cur_page,industry,next_page_html)
 ```
 
-###spider(parameter)
+### spider(parameter)
 
 主体函数，接收main传递的参数，并调用loop_all_page开始解析
 
