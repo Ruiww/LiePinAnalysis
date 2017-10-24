@@ -152,9 +152,9 @@ def save_to_mongo(industry,cur_page,i,url,data):
 
 
 # 打开数据库连接
-db = pymysql.connect(host, user, key, mysqlDB)
+#db = pymysql.connect(host, user, key, mysqlDB)
 # 使用cursor()方法获取操作游标
-cursor = db.cursor()
+#cursor = db.cursor()
 
 #保存数据至mysql
 def save_to_mysql(industry,cur_page,i,url,data):
@@ -179,6 +179,7 @@ def loop_detail_page(industry,cur_page,detail_page_url_list):
     for url in detail_page_url_list :
         html = get_detail_page_html(industry,cur_page,url)
         data = parse_detail_page(industry,html)
+        data['url'] = url
         if database == 'mongodb':
             save_to_mongo(industry,cur_page,i,url,data)
         else:
@@ -209,7 +210,13 @@ def spider(parameter):
     print(industry)
     cur_page = 1
     industry_html = index_page_html(industry,cur_page,industry_url)#获取分行业索引页，curpage=0
-    '''
+
+    loop_all_page(cur_page,industry,industry_html)
+
+    #if database == 'mysql':
+    #    db.close()
+
+'''
     if database == 'mysql':
         sql = """CREATE TABLE `liepin` (
         `JobTitle` CHAR,
@@ -234,7 +241,3 @@ def spider(parameter):
             # 如果发生错误则回滚
             db.rollback()
     '''
-    loop_all_page(cur_page,industry,industry_html)
-
-    #if database == 'mysql':
-    #    db.close()

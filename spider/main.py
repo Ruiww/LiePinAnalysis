@@ -20,7 +20,7 @@ if __name__ == '__main__':
         print(para)
 
     #多线程运行
-    pool = Pool(4)
+    pool = Pool()
     pool.map(spider,para_groups)
 
     #单线程

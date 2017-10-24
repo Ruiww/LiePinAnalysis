@@ -7,12 +7,12 @@ database = 'mongodb'
 host = 'localhost'
 user = 'pymsql'
 key = 'pymysql'
-mysqlDB = 'LiePinData'
+mysqlDB = 'LiePinData1'
 
 #mongoDB参数
 mongo_url = 'localhost'
 mongo_DB = 'LiePin'
-mongo_table = 'LiePin_Analysis'
+mongo_table = 'LiePin_Analysis1'
 
 #请求头参数
 user_Agent = [
