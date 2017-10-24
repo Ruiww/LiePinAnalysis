@@ -8,8 +8,6 @@
 
 源数据：
 
-[TOC]
-
 # 数据清洗
 
 观察原始数据（共27633条）情况，并使用MySQL对爬取的原始数据进行清洗。
@@ -61,22 +59,9 @@
 
 ## 用于分析的数据
 
+根据分析目的筛选用于分析的数据，获得2320条
+
 * 因猎聘网搜索较为模糊，结果中包含'会计助理'、'项目运营'等无关职位，对`JobTitle`进行筛选：包含'数据分析'、'大数据'、'数据运营'、'data'等
 * 只分析未结束职位：is_end = 0
 * 去重
-
-```mysql
-SELECT jobtitle,company,min_salary,max_salary,average_salary,pdate,
-tag_list,description,industry,companysize,comaddress,position1,
-education,workexperience,worklanguage,age,is_end
-FROM `data`
-WHERE (
-jobtitle LIKE '%数据%分析%' 
-OR jobtitle LIKE'%大数据%' 
-OR jobtitle LIKE '%大数据%' 
-OR jobtitle LIKE '%数据%运营%'
-OR jobtitle LIKE '%data%'
-)
-AND (is_end = 0);
-```
 
