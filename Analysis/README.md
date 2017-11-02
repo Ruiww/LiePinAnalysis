@@ -71,9 +71,9 @@
 
 ## 用于分析的数据
 
-根据分析目的筛选用于分析的数据，获得2320条
+根据分析目的筛选用于分析的数据，获得2404条
 
-* 因猎聘网搜索较为模糊，结果中包含'会计助理'、'项目运营'等无关职位，对`JobTitle`进行筛选：包含'数据分析'、'大数据'、'数据运营'、'data'等
+* 因猎聘网搜索较为模糊，结果中包含'会计助理'、'项目运营'等无关职位，对`JobTitle`进行筛选：包含'数据分析'、'大数据'、'数据运营'、'数据挖掘'等
 * 只分析未结束职位：is_end = 0
 * 去重
 
@@ -92,7 +92,7 @@
 
 ## 分析思路  
 
-![0数据分析求职指南](/Users/wangrui/Desktop/pic/0数据分析求职指南.png)
+![0数据分析求职指南](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/0数据分析求职指南.png)
 
 
 
@@ -106,7 +106,7 @@
 
 
 
-![0数据分析求职指南](/Users/wangrui/Desktop/pic/1-ind.png)
+![0数据分析求职指南](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/1-ind.png)
 
 
 
@@ -132,7 +132,7 @@ TOP10中服装服饰行业需求超过专业咨询排到第7位令人意外，�
 
 
 
-![2-ind-pie](/Users/wangrui/Desktop/pic/2-ind-pie.png)
+![2-ind-pie](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/2-ind-pie.png)
 
 
 
@@ -154,19 +154,17 @@ TOP10中服装服饰行业需求超过专业咨询排到第7位令人意外，�
 
 
 
-![3-pos-bar](/Users/wangrui/Desktop/pic/3-pos-bar.png)
+![3-pos-bar](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/3-pos-bar.png)
 
 
 
-![4-pos-pie](/Users/wangrui/Desktop/pic/4-pos-pie.png)
-
-
+![4-pos-pie](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/4-pos-pie.png)
 
 职位需求大的城市平均每家公司的需求量也较高，但天津市奇高。对天津市各公司的职位需求数量进行分组统计，发现捷信中国与捷信消费金融目前对数据分析职位有大量的需求，而天津有数据分析需求的公司数量较小，因此明显拉高了其职位/公司比。
 
 
 
-![Snip20171101_5](/Users/wangrui/Desktop/pic/Snip20171101_5.png)
+![Snip20171101_5](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/Snip20171101_5.png)
 
 
 
@@ -174,7 +172,7 @@ TOP10中服装服饰行业需求超过专业咨询排到第7位令人意外，�
 
 从地区层面来说，职位主要分布在京津冀、长三角、珠三角与川渝四个地区，这样的分布特征也与当前互联网行业的分布呈现明显相关性，与职位的行业分布情况吻合。
 
-![5-pos-geo](/Users/wangrui/Desktop/pic/5-pos-geo.png)
+![5-pos-geo](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/5-pos-geo.png)
 
 
 
@@ -182,7 +180,7 @@ TOP10中服装服饰行业需求超过专业咨询排到第7位令人意外，�
 
 |  城市  |                  TOP 3                  |
 | :--: | :-------------------------------------: |
-|  北京  |              Baidu、京东、掌众科               |
+|  北京  |              Baidu、京东、掌众科技              |
 |  上海  |    深圳平安综合金融服务有限公司、游族、交银企服张江高科技园区分公司     |
 |  深圳  | 深圳平安综合金融服务有限公司、深圳市城市交通规划设计研究中心有限公司、大数金融 |
 |  广州  |         广州银行、UC优视(UC浏览器)、合生元集团          |
@@ -199,11 +197,11 @@ TOP10中服装服饰行业需求超过专业咨询排到第7位令人意外，�
 
 
 
-![10-size-bar](/Users/wangrui/Desktop/pic/10-size-bar.png)
+![10-size-bar](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/10-size-bar.png)
 
 
 
-![11-size-pie](/Users/wangrui/Desktop/pic/11-size-pie.png)
+![11-size-pie](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/11-size-pie.png)
 
 
 
@@ -213,11 +211,11 @@ TOP10中服装服饰行业需求超过专业咨询排到第7位令人意外，�
 
 
 
-![7-type-bar](/Users/wangrui/Desktop/pic/7-type-bar.png)
+![7-type-bar](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/7-type-bar.png)
 
 需求量较大的行业中，IT服务与计算机软件两行业大数据类型的职位占比较高，主要由许多toB的软件与服务提供商组成。
 
-![8-ind-type-pie](/Users/wangrui/Desktop/pic/8-ind-type-pie.png)
+![8-ind-type-pie](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/8-ind-type-pie.png)
 
 ## 薪酬与福利
 
@@ -232,7 +230,9 @@ TOP10中服装服饰行业需求超过专业咨询排到第7位令人意外，�
 
 
 
-![12-year-salary](/Users/wangrui/Desktop/pic/12-year-salary.png)
+![12-year-salary](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/12-year-salary.png)
+
+
 
 ### 福利水平较高，社保、假期与发展空间相关词出现最频繁
 
@@ -240,33 +240,39 @@ TOP10中服装服饰行业需求超过专业咨询排到第7位令人意外，�
 
 五险一金，带薪年假，发展空间大，绩效奖金，岗位晋升，定期体检，领导好，节日礼物，午餐补助，技能培训
 
-![13-bonus](/Users/wangrui/Desktop/pic/13-bonus.png)
+![13-bonus](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/13-bonus.png)
 
 ## 技能需求
 
 对四类职位（数据分析、数据运营、数据挖掘、大数据）的岗位描述进行聚合并分词，获得词云。
 
-由词云可以看出，职位的技能需求从数据分析和运营偏重业务与技术结合的层面，到数据挖掘的编程、机器学习，再到大数据的各类构架这一较倚重技术的方向。在求职准备时，可以根据自身情况，选择职业类型，并根据所需技能进行重点的准备。
+由词云可以看出，职位的技能需求从数据分析和运营偏重业务与技术结合的层面，到数据挖掘的编程、机器学习，再到大数据的各类构架这一较倚重技术的方向。数据分析的必备技能为Excel和SQL，其他方面在做求职准备时，可以根据自身情况，选择职业类型，并根据所需技能进行重点的准备。
 
 ### 数据分析：SQL、EXCEL、统计学
 
-![15-DA-wc](/Users/wangrui/Desktop/pic/15-DA-wc.png)
+![15-DA-wc](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/15-DA-wc.png)
 
 
 
 ### 数据运营：EXCEL、分析报告、SQL
 
-![16-DO-wc](/Users/wangrui/Desktop/pic/16-DO-wc.png)
+![16-DO-wc](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/16-DO-wc.png)
 
 
 
 ### 数据挖掘：PYTHON、统计学、R
 
-![17-DD-WC](/Users/wangrui/Desktop/pic/17-DD-WC.png)
+![17-DD-WC](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/17-DD-WC.png)
 
 
 
 ### 大数据：HADOOP、SPARK、JAVA
 
-![18-BD-WC](/Users/wangrui/Desktop/pic/18-BD-WC.png)
+![18-BD-WC](/Users/wangrui/Documents/GitHub/LiePinSpider/Analysis/charts/18-BD-WC.png)
 
+## 结论
+
+1. 在进行数据分析相关岗位求职时，应优先选择互联网或金融相关领域，并根据自身专业与经历选择适当的细分行业；
+2. 北上深广尤其是北京、上海职位多，机会多，求职时应作为重点考虑城市；
+3. 工作3-4年薪酬一般能够达到25-30万，但此时需要加强学习，挣脱瓶颈，争取在第6年实现收入的飞跃；
+4. Excel和SQL是各类数据分析职位的基本功和必备技能，进阶的诸如Python、R、Hadoop等可根据自身定位进行学习。
